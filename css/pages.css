@@ -1,0 +1,214 @@
+
+.parent > h1::before,
+.preparatifs > h1::before,
+.courses > h1::before,
+.systemeFac > h1::before {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 1.25rem;
+  background: var(--accent);
+  border-radius: var(--blob);
+}
+
+
+.presentation {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 9.5rem var(--gutter) 3rem;
+  padding-inline: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter)));
+}
+.presentation::before,   
+.presentation::after {    
+  content: "";
+  position: absolute;
+  z-index: -1;
+  border-radius: var(--blob);
+  animation: cutout .9s cubic-bezier(.2, .9, .3, 1.2) both;
+}
+.presentation::before {
+  width: clamp(11rem, 34vw, 27rem);
+  aspect-ratio: 1;
+  top: -3rem;
+  right: -3rem;
+  background: var(--blue);
+}
+.presentation::after {
+  width: clamp(6rem, 17vw, 13rem);
+  aspect-ratio: 1;
+  top: 3.5rem;
+  right: clamp(7rem, 24vw, 19rem);
+  background: var(--sun);
+  border-radius: 45% 55% 40% 60% / 60% 40% 60% 40%;
+  animation-delay: .15s;
+}
+@keyframes cutout { from { opacity: 0; transform: scale(.6) rotate(-14deg); } }
+
+.presentation h1 { margin-bottom: 1.5rem; }
+.presentation > h3 { font-size: 1.6rem; margin-bottom: .5rem; }
+.presentation .paragraphe { font-size: 1.2rem; max-width: 52ch; }
+
+@media (min-width: 900px) {
+  .presentation { padding-top: 5.5rem; padding-bottom: 4rem; }
+  .presentation > h1 { max-width: 56%; }
+}
+
+
+.quick-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1rem var(--gutter) 2rem;
+}
+.quick-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 15rem;
+  padding: 1.75rem;
+  border-radius: 28px;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--tile, var(--sun));
+}
+.quick-card:hover { color: var(--ink); }
+.quick-card .bi { margin: 0 0 auto; font-size: 2.2rem; line-height: 1; color: inherit; }
+.quick-card h2 { margin: 2rem 0 .4rem; font-size: 1.75rem; color: inherit; position: relative; }
+.quick-card p { margin: 0; font-size: 1.02rem; color: inherit; max-width: 30ch; position: relative; }
+.quick-card::after { 
+  content: "";
+  position: absolute;
+  top: -2.5rem;
+  right: -2.5rem;
+  width: 9rem;
+  height: 9rem;
+  background: rgba(255, 255, 255, .5);
+  border-radius: var(--blob);
+  transition: transform .35s cubic-bezier(.2, .9, .3, 1.3);
+}
+.quick-card:hover::after { transform: rotate(18deg) scale(1.15); }
+
+.quick-card:nth-child(1) { --tile: var(--sun); }
+.quick-card:nth-child(2) { --tile: var(--blue); color: #fff; }
+.quick-card:nth-child(2):hover { color: #fff; }
+.quick-card:nth-child(3) { --tile: var(--sea); }
+.quick-card:nth-child(4) { --tile: var(--coral); }
+.quick-card:nth-child(5) { --tile: var(--lilac); }
+.quick-card:nth-child(6) { --tile: var(--sky); }
+.quick-card:nth-child(even)::after { border-radius: 42% 58% 60% 40% / 55% 45% 55% 45%; }
+
+@media (min-width: 700px) {
+  .quick-links { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {     
+  .quick-links { grid-template-columns: repeat(12, 1fr); }
+  .quick-card:nth-child(1) { grid-column: span 4; }
+  .quick-card:nth-child(2) { grid-column: span 5; }
+  .quick-card:nth-child(3) { grid-column: span 3; }
+  .quick-card:nth-child(4) { grid-column: span 5; }
+  .quick-card:nth-child(5) { grid-column: span 3; }
+  .quick-card:nth-child(6) { grid-column: span 4; }
+  .quick-card { min-height: 17rem; }
+}
+
+
+.preparatifs {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) var(--gutter) 1rem;
+}
+.preparatifs > ul { list-style: none; padding: 0; margin: 2rem 0 0; max-width: 52rem; }
+.preparatifs > ul > li {
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 1.25rem 1.5rem 1.25rem 4.75rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+.preparatifs > ul > li::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 1.15rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--accent);
+  border-radius: var(--blob);
+}
+
+
+.courses,
+.tarifs {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) var(--gutter) 0;
+}
+.tarifs { padding-top: 2rem; }
+.tarifs > h1 { font-size: clamp(1.7rem, 1.2rem + 2vw, 2.6rem); }
+.magasin > ul { list-style: none; margin: 0; padding: 0; }
+
+.interface {
+  display: grid;
+  gap: 1rem 2rem;
+  margin: 0 0 1.25rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  list-style: none;
+}
+.interface:nth-child(-n + 3) { border-top: 10px solid var(--accent); } 
+.interface > h1 { margin: 0; font-size: clamp(1.6rem, 1rem + 2vw, 2.4rem); text-transform: capitalize; }
+.interface > h1::before { content: none; }
+.interface > img {
+  width: 100%;
+  height: 10rem;
+  padding: 1rem;
+  object-fit: contain;
+  background: var(--paper);
+  border-radius: 20px;
+}
+.details { list-style: none; margin: 0; padding: 0; }
+.details li { padding: .5rem 0; border-bottom: 1px dashed var(--line); font-size: 1.05rem; }
+.details li:last-child { border-bottom: 0; }
+@media (min-width: 760px) {
+  .interface { grid-template-columns: 14rem minmax(0, 1fr); align-items: center; }
+  .interface > img { grid-column: 1; grid-row: 1 / span 2; }
+  .interface > h1 { grid-column: 2; grid-row: 1; }
+  .interface > ul, .interface > .raisons { grid-column: 2; grid-row: 2; }
+}
+
+
+.systemeFac,
+.alimentation,
+.Entee {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 5rem) var(--gutter) 1rem;
+}
+.systemeFac > p { font-size: 1.2rem; }
+.systemeFac > h3 {
+  margin: 2.5rem 0 1rem;
+  padding-left: 1rem;
+  border-left: 10px solid var(--accent);
+}
+.conseil {
+  width: min(calc(100% - 2 * var(--gutter)), calc(var(--max) - 2 * var(--gutter)));
+  margin: 3rem auto 0;
+  padding: clamp(2rem, 5vw, 4rem);
+  background: var(--ink);
+  border-radius: 32px;
+  color: #dfe5ff;
+}
+.conseil > h1 { margin-bottom: 1rem; font-size: clamp(2rem, 1.2rem + 3vw, 3.2rem); color: #fff; }
+.conseil > p { margin: 0; font-size: 1.2rem; }
+
+.recette { padding: 2rem; border: 2px dashed var(--line); border-radius: 20px; }

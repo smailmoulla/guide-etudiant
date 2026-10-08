@@ -1,0 +1,10 @@
+
+@import "./normalize.css";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
+@import "./css/fonts.css";      
+@import "./css/tokens.css";     
+@import "./css/base.css";       
+@import "./css/layout.css";     
+@import "./css/components.css"; 
+@import "./css/pages.css";      

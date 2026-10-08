@@ -1,0 +1,33 @@
+
+:root {
+  --ink: #0b1b4a;        
+  --ink-2: #44507a;     
+  --paper: #f5f7fb;     
+  --paper-2: #e6ebf6;
+  --white: #fff;
+  --line: #d6ddee;
+  --link: #1d38c4;
+
+  --blue: #2646e6;
+  --sun: #ffd23f;
+  --sea: #17b08a;
+  --coral: #ff6b57;
+  --lilac: #c7b5ff;
+  --sky: #9fd4ff;
+
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+
+  --max: 1180px;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --header-h: 4.5rem;
+  --blob: 58% 42% 49% 51% / 45% 55% 45% 55%; 
+}
+
+body { --accent: var(--ink); --on-accent: #fff; --tint: #e6ebf6; }
+body[data-section="prep"]    { --accent: var(--sun);   --on-accent: var(--ink); --tint: #fff3c4; }
+body[data-section="admin"]   { --accent: var(--blue);  --on-accent: #fff;       --tint: #e1e7ff; }
+body[data-section="reco"]    { --accent: var(--sea);   --on-accent: var(--ink); --tint: #d3f4ea; }
+body[data-section="housing"] { --accent: var(--coral); --on-accent: var(--ink); --tint: #ffe0da; }
+body[data-section="shop"]    { --accent: var(--lilac); --on-accent: var(--ink); --tint: #ece5ff; }
+body[data-section="campus"]  { --accent: var(--sky);   --on-accent: var(--ink); --tint: #ddf0ff; }
